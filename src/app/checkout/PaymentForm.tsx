@@ -21,7 +21,7 @@ import CreditCardRoundedIcon from "@mui/icons-material/CreditCardRounded";
 import SimCardRoundedIcon from "@mui/icons-material/SimCardRounded";
 import WarningRoundedIcon from "@mui/icons-material/WarningRounded";
 
-const Card = styled(MuiCard)<{ selected?: boolean }>(({ theme }) => ({
+const Card = styled(MuiCard)<{ selected: boolean }>(({ theme }) => ({
   border: "1px solid",
   borderColor: theme.palette.divider,
   width: "100%",
