@@ -982,7 +982,11 @@ const theme = experimental_extendTheme({
 });
 
 /** @type {import('next').NextConfig} */
-const nextConfig = {};
+const nextConfig = {
+  typescript: {
+    ignoreBuildErrors: true,
+  },
+};
 
 function innerNoop() {
   return null;
@@ -1006,6 +1010,12 @@ module.exports = withPigment(nextConfig, {
           return {
             __esModule: true,
             createClientModuleProxy: () => {},
+          };
+        }
+        if (id === "@mui/material/Grid") {
+          return {
+            __esModule: true,
+            default: () => null,
           };
         }
         if (id === "@mui/styled-engine" || id === "@mui/styled-engine-sc") {

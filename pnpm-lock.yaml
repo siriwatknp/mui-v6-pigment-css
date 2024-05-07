@@ -26,9 +26,12 @@ dependencies:
   '@mui/system':
     specifier: ^6.0.0-alpha.5
     version: 6.0.0-dev.240424162023-9968b4889d(@emotion/react@11.11.4)(@emotion/styled@11.11.0)(@types/react@18.3.1)(react@18.3.1)
+  '@mui/utils':
+    specifier: ^6.0.0-alpha.5
+    version: 6.0.0-alpha.5(@types/react@18.3.1)(react@18.3.1)
   '@pigment-css/react':
-    specifier: https://pkg.csb.dev/mui/pigment-css/commit/8ca64741/@pigment-css/react
-    version: '@pkg.csb.dev/mui/pigment-css/commit/8ca64741/@pigment-css/react(@types/react@18.3.1)(react@18.3.1)(typescript@5.4.5)'
+    specifier: https://pkg.csb.dev/mui/pigment-css/commit/ea1a9784/@pigment-css/react
+    version: '@pkg.csb.dev/mui/pigment-css/commit/ea1a9784/@pigment-css/react(@types/react@18.3.1)(react@18.3.1)(typescript@5.4.5)'
   next:
     specifier: 14.2.3
     version: 14.2.3(@babel/core@7.24.5)(react-dom@18.3.1)(react@18.3.1)
@@ -41,8 +44,8 @@ dependencies:
 
 devDependencies:
   '@pigment-css/nextjs-plugin':
-    specifier: https://pkg.csb.dev/mui/pigment-css/commit/8ca64741/@pigment-css/nextjs-plugin
-    version: '@pkg.csb.dev/mui/pigment-css/commit/8ca64741/@pigment-css/nextjs-plugin(@types/react@18.3.1)(next@14.2.3)(react@18.3.1)(typescript@5.4.5)'
+    specifier: https://pkg.csb.dev/mui/pigment-css/commit/ea1a9784/@pigment-css/nextjs-plugin
+    version: '@pkg.csb.dev/mui/pigment-css/commit/ea1a9784/@pigment-css/nextjs-plugin(@types/react@18.3.1)(next@14.2.3)(react@18.3.1)(typescript@5.4.5)'
   '@types/node':
     specifier: ^20
     version: 20.12.10
@@ -3916,15 +3919,15 @@ packages:
       react-is: 18.3.1
     dev: false
 
-  '@pkg.csb.dev/mui/pigment-css/commit/8ca64741/@pigment-css/nextjs-plugin(@types/react@18.3.1)(next@14.2.3)(react@18.3.1)(typescript@5.4.5)':
-    resolution: {tarball: https://pkg.csb.dev/mui/pigment-css/commit/8ca64741/@pigment-css/nextjs-plugin}
-    id: '@pkg.csb.dev/mui/pigment-css/commit/8ca64741/@pigment-css/nextjs-plugin'
+  '@pkg.csb.dev/mui/pigment-css/commit/ea1a9784/@pigment-css/nextjs-plugin(@types/react@18.3.1)(next@14.2.3)(react@18.3.1)(typescript@5.4.5)':
+    resolution: {tarball: https://pkg.csb.dev/mui/pigment-css/commit/ea1a9784/@pigment-css/nextjs-plugin}
+    id: '@pkg.csb.dev/mui/pigment-css/commit/ea1a9784/@pigment-css/nextjs-plugin'
     name: '@pigment-css/nextjs-plugin'
     version: 0.0.10
     peerDependencies:
       next: ^12.0.0 || ^13.0.0 || ^14.0.0
     dependencies:
-      '@pigment-css/unplugin': '@pkg.csb.dev/mui/pigment-css/commit/8ca64741/@pigment-css/unplugin(@types/react@18.3.1)(react@18.3.1)(typescript@5.4.5)'
+      '@pigment-css/unplugin': '@pkg.csb.dev/mui/pigment-css/commit/ea1a9784/@pigment-css/unplugin(@types/react@18.3.1)(react@18.3.1)(typescript@5.4.5)'
       next: 14.2.3(@babel/core@7.24.5)(react-dom@18.3.1)(react@18.3.1)
     transitivePeerDependencies:
       - '@types/react'
@@ -3933,9 +3936,9 @@ packages:
       - typescript
     dev: true
 
-  '@pkg.csb.dev/mui/pigment-css/commit/8ca64741/@pigment-css/react(@types/react@18.3.1)(react@18.3.1)(typescript@5.4.5)':
-    resolution: {tarball: https://pkg.csb.dev/mui/pigment-css/commit/8ca64741/@pigment-css/react}
-    id: '@pkg.csb.dev/mui/pigment-css/commit/8ca64741/@pigment-css/react'
+  '@pkg.csb.dev/mui/pigment-css/commit/ea1a9784/@pigment-css/react(@types/react@18.3.1)(react@18.3.1)(typescript@5.4.5)':
+    resolution: {tarball: https://pkg.csb.dev/mui/pigment-css/commit/ea1a9784/@pigment-css/react}
+    id: '@pkg.csb.dev/mui/pigment-css/commit/ea1a9784/@pigment-css/react'
     name: '@pigment-css/react'
     version: 0.0.10
     peerDependencies:
@@ -3968,14 +3971,14 @@ packages:
       - supports-color
       - typescript
 
-  '@pkg.csb.dev/mui/pigment-css/commit/8ca64741/@pigment-css/unplugin(@types/react@18.3.1)(react@18.3.1)(typescript@5.4.5)':
-    resolution: {tarball: https://pkg.csb.dev/mui/pigment-css/commit/8ca64741/@pigment-css/unplugin}
-    id: '@pkg.csb.dev/mui/pigment-css/commit/8ca64741/@pigment-css/unplugin'
+  '@pkg.csb.dev/mui/pigment-css/commit/ea1a9784/@pigment-css/unplugin(@types/react@18.3.1)(react@18.3.1)(typescript@5.4.5)':
+    resolution: {tarball: https://pkg.csb.dev/mui/pigment-css/commit/ea1a9784/@pigment-css/unplugin}
+    id: '@pkg.csb.dev/mui/pigment-css/commit/ea1a9784/@pigment-css/unplugin'
     name: '@pigment-css/unplugin'
     version: 0.0.10
     dependencies:
       '@babel/core': 7.24.5
-      '@pigment-css/react': '@pkg.csb.dev/mui/pigment-css/commit/8ca64741/@pigment-css/react(@types/react@18.3.1)(react@18.3.1)(typescript@5.4.5)'
+      '@pigment-css/react': '@pkg.csb.dev/mui/pigment-css/commit/ea1a9784/@pigment-css/react(@types/react@18.3.1)(react@18.3.1)(typescript@5.4.5)'
       '@wyw-in-js/shared': 0.5.3
       '@wyw-in-js/transform': 0.5.3(typescript@5.4.5)
       babel-plugin-define-var: 0.1.0

@@ -16,13 +16,14 @@
     "@mui/material": "https://pkg.csb.dev/mui/material-ui/commit/279e4ccc/@mui/material",
     "@mui/system": "^6.0.0-alpha.5",
     "@mui/material-nextjs": "^6.0.0-alpha.5",
-    "@pigment-css/react": "https://pkg.csb.dev/mui/pigment-css/commit/8ca64741/@pigment-css/react",
+    "@mui/utils": "^6.0.0-alpha.5",
+    "@pigment-css/react": "https://pkg.csb.dev/mui/pigment-css/commit/ea1a9784/@pigment-css/react",
     "react": "^18",
     "react-dom": "^18",
     "next": "14.2.3"
   },
   "devDependencies": {
-    "@pigment-css/nextjs-plugin": "https://pkg.csb.dev/mui/pigment-css/commit/8ca64741/@pigment-css/nextjs-plugin",
+    "@pigment-css/nextjs-plugin": "https://pkg.csb.dev/mui/pigment-css/commit/ea1a9784/@pigment-css/nextjs-plugin",
     "typescript": "^5",
     "@types/node": "^20",
     "@types/react": "^18",
