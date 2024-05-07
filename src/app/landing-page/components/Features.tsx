@@ -9,7 +9,7 @@ import Link from "@mui/material/Link";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 
-import { styled } from "@mui/material/styles";
+import { styled } from "@pigment-css/react";
 
 import ChevronRightRoundedIcon from "@mui/icons-material/ChevronRightRounded";
 import DevicesRoundedIcon from "@mui/icons-material/DevicesRounded";
@@ -52,19 +52,29 @@ interface ChipProps {
   selected?: boolean;
 }
 
-const Chip = styled(MuiChip)<ChipProps>(({ theme, selected }) => ({
-  ...(selected && {
-    borderColor:
-      theme.palette.mode === "light"
-        ? theme.palette.primary.light
-        : theme.palette.primary.dark,
-    background:
-      "linear-gradient(to bottom right, hsl(210, 98%, 48%), hsl(210, 98%, 35%))",
-    color: "hsl(0, 0%, 100%)",
-    "& .MuiChip-label": {
+const Chip = styled(MuiChip)<ChipProps>(({
+  theme
+}) => ({
+  variants: [{
+    props: (
+      {
+        selected
+      }
+    ) => selected,
+    style: {
+      borderColor:
+        theme.palette.primary.dark,
+      background:
+        "linear-gradient(to bottom right, hsl(210, 98%, 48%), hsl(210, 98%, 35%))",
       color: "hsl(0, 0%, 100%)",
-    },
-  }),
+      "& .MuiChip-label": {
+        color: "hsl(0, 0%, 100%)",
+      },
+      ...theme.applyStyles("light", {
+        borderColor: theme.palette.primary.light
+      })
+    }
+  }]
 }));
 
 export default function Features() {

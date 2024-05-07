@@ -4,6 +4,7 @@ import { AppRouterCacheProvider } from "@mui/material-nextjs/v14-appRouter";
 import { Experimental_CssVarsProvider as CssVarsProvider } from "@mui/material/styles";
 import colorSchemeScript from "./getInitColorSchemeScript";
 import theme from "./theme";
+import "@pigment-css/react/styles.css";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -22,7 +23,11 @@ export default function RootLayout({
       <body className={inter.className}>
         {colorSchemeScript}
         <AppRouterCacheProvider options={{ enableCssLayer: true }}>
-          <CssVarsProvider theme={theme} defaultMode="system">
+          <CssVarsProvider
+            theme={theme}
+            defaultMode="system"
+            disableStyleSheetGeneration
+          >
             {children}
           </CssVarsProvider>
         </AppRouterCacheProvider>
