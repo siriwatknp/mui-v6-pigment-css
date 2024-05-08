@@ -6,7 +6,10 @@ import colorSchemeScript from "./getInitColorSchemeScript";
 import theme from "./theme";
 import "@pigment-css/react/styles.css";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({
+  subsets: ["latin"],
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -19,8 +22,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={inter.className}>
+    <html lang="en" className={inter.className}>
+      <body>
         {colorSchemeScript}
         <AppRouterCacheProvider options={{ enableCssLayer: true }}>
           <CssVarsProvider

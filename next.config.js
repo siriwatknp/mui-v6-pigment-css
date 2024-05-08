@@ -998,6 +998,7 @@ function outerNoop() {
 module.exports = withPigment(nextConfig, {
   theme,
   transformLibraries: ["@mui/material"],
+  transpilePackages: ["@mui/material"],
   transformSx: true,
   overrideContext: (context) => {
     if (!context.$RefreshSig$) {
@@ -1006,6 +1007,29 @@ module.exports = withPigment(nextConfig, {
     return {
       ...context,
       require: (id) => {
+        if (id === "@mui/system/colorManipulator") {
+          return {
+            __esModule: true,
+            hexToRgb: () => "",
+            decomposeColor: () => {},
+            colorChannel: () => "",
+            private_safeColorChannel: () => "",
+            recomposeColor: () => {},
+            rgbToHex: () => "",
+            hslToRgb: () => "",
+            getLuminance: () => "",
+            getContrastRatio: () => "",
+            alpha: () => "",
+            private_safeAlpha: () => "",
+            darken: () => "",
+            private_safeDarken: () => "",
+            lighten: () => "",
+            private_safeLighten: () => "",
+            emphasize: () => "",
+            private_safeEmphasize: () => "",
+            blend: () => "",
+          };
+        }
         if (id === "react-server-dom-webpack/server.edge") {
           return {
             __esModule: true,

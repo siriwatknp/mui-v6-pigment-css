@@ -1,3 +1,4 @@
+"use client";
 import * as React from "react";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
@@ -52,29 +53,24 @@ interface ChipProps {
   selected?: boolean;
 }
 
-const Chip = styled(MuiChip)<ChipProps>(({
-  theme
-}) => ({
-  variants: [{
-    props: (
-      {
-        selected
-      }
-    ) => selected,
-    style: {
-      borderColor:
-        theme.palette.primary.dark,
-      background:
-        "linear-gradient(to bottom right, hsl(210, 98%, 48%), hsl(210, 98%, 35%))",
-      color: "hsl(0, 0%, 100%)",
-      "& .MuiChip-label": {
+const Chip = styled(MuiChip)<ChipProps>(({ theme }) => ({
+  variants: [
+    {
+      props: ({ selected }) => selected,
+      style: {
+        borderColor: theme.palette.primary.dark,
+        background:
+          "linear-gradient(to bottom right, hsl(210, 98%, 48%), hsl(210, 98%, 35%))",
         color: "hsl(0, 0%, 100%)",
+        "& .MuiChip-label": {
+          color: "hsl(0, 0%, 100%)",
+        },
+        ...theme.applyStyles("light", {
+          borderColor: theme.palette.primary.light,
+        }),
       },
-      ...theme.applyStyles("light", {
-        borderColor: theme.palette.primary.light
-      })
-    }
-  }]
+    },
+  ],
 }));
 
 export default function Features() {
