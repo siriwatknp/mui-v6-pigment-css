@@ -19,7 +19,7 @@ export default function FAQ() {
     };
 
   return (
-    <Container
+    (<Container
       id="faq"
       sx={{
         pt: { xs: 4, sm: 12 },
@@ -34,12 +34,11 @@ export default function FAQ() {
       <Typography
         component="h2"
         variant="h4"
-        color="text.primary"
         sx={{
+          color: "text.primary",
           width: { sm: "100%", md: "60%" },
-          textAlign: { sm: "left", md: "center" },
-        }}
-      >
+          textAlign: { sm: "left", md: "center" }
+        }}>
         Frequently asked questions
       </Typography>
       <Box sx={{ width: "100%" }}>
@@ -147,6 +146,6 @@ export default function FAQ() {
           </AccordionDetails>
         </Accordion>
       </Box>
-    </Container>
+    </Container>)
   );
 }

@@ -51,7 +51,7 @@ export default function Checkout() {
   };
 
   return (
-    <React.Fragment>
+    (<React.Fragment>
       <CssBaseline />
       <Grid container sx={{ height: { xs: "100%", sm: "100dvh" } }}>
         <Grid
@@ -244,7 +244,9 @@ export default function Checkout() {
               <Stack spacing={2} useFlexGap>
                 <Typography variant="h1">📦</Typography>
                 <Typography variant="h5">Thank you for your order!</Typography>
-                <Typography variant="body1" color="text.secondary">
+                <Typography variant="body1" sx={{
+                  color: "text.secondary"
+                }}>
                   Your order number is
                   <strong>&nbsp;#140396</strong>. We have emailed your order
                   confirmation and will update you once its shipped.
@@ -324,6 +326,6 @@ export default function Checkout() {
           </Box>
         </Grid>
       </Grid>
-    </React.Fragment>
+    </React.Fragment>)
   );
 }

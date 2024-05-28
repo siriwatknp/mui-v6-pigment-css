@@ -35,7 +35,7 @@ const StyledBox = styled("div")(({ theme }) => ({
 
 export default function Hero() {
   return (
-    <Box
+    (<Box
       id="hero"
       sx={(theme) => ({
         width: "100%",
@@ -59,10 +59,11 @@ export default function Hero() {
       >
         <Stack
           spacing={2}
-          alignItems="center"
           useFlexGap
-          sx={{ width: { xs: "100%", sm: "70%" } }}
-        >
+          sx={{
+            alignItems: "center",
+            width: { xs: "100%", sm: "70%" }
+          }}>
           <Typography
             variant="h1"
             sx={{
@@ -88,10 +89,11 @@ export default function Hero() {
             </Typography>
           </Typography>
           <Typography
-            textAlign="center"
-            color="text.secondary"
-            sx={{ width: { sm: "100%", md: "80%" } }}
-          >
+            sx={{
+              textAlign: "center",
+              color: "text.secondary",
+              width: { sm: "100%", md: "80%" }
+            }}>
             Explore our cutting-edge dashboard, delivering high-quality
             solutions tailored to your needs. Elevate your experience with
             top-tier features and services.
@@ -121,7 +123,9 @@ export default function Hero() {
               Start now
             </Button>
           </Stack>
-          <Typography variant="caption" textAlign="center">
+          <Typography variant="caption" sx={{
+            textAlign: "center"
+          }}>
             By clicking &quot;Start now&quot; you agree to our&nbsp;
             <Link href="#" color="primary">
               Terms & Conditions
@@ -131,6 +135,6 @@ export default function Hero() {
         </Stack>
         <StyledBox id="image" />
       </Container>
-    </Box>
+    </Box>)
   );
 }

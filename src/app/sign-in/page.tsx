@@ -107,26 +107,27 @@ export default function SignIn() {
   };
 
   return (
-    <React.Fragment>
+    (<React.Fragment>
       <CssBaseline />
       <SignInContainer direction="column" justifyContent="space-between">
         <Stack
           direction="row"
-          justifyContent="space-between"
           sx={{
+            justifyContent: "space-between",
             position: { xs: "static", sm: "fixed" },
             width: "100%",
-            p: { xs: 2, sm: 4 },
-          }}
-        >
+            p: { xs: 2, sm: 4 }
+          }}>
           <Button startIcon={<ArrowBackRoundedIcon />} component="a" href="/">
             Back
           </Button>
         </Stack>
         <Stack
-          justifyContent="center"
-          sx={{ height: { xs: "100%", sm: "100dvh" }, p: 2 }}
-        >
+          sx={{
+            justifyContent: "center",
+            height: { xs: "100%", sm: "100dvh" },
+            p: 2
+          }}>
           <Card>
             <SitemarkIcon />
             <Typography
@@ -244,6 +245,6 @@ export default function SignIn() {
           </Card>
         </Stack>
       </SignInContainer>
-    </React.Fragment>
+    </React.Fragment>)
   );
 }
