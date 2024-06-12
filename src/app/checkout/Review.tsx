@@ -17,13 +17,11 @@ const payments = [
 export default function Review() {
   return (
     <div
-      sx={(theme) =>
-        theme.unstable_sx({
-          display: "flex",
-          flexDirection: "column",
-          gap: 2,
-        })
-      }
+      sx={{
+        display: "flex",
+        flexDirection: "column",
+        gap: 2,
+      }}
     >
       <List disablePadding>
         <ListItem sx={{ py: 1, px: 0 }}>
@@ -42,11 +40,7 @@ export default function Review() {
         </ListItem>
       </List>
       <Divider />
-      <div
-        sx={(theme) =>
-          theme.unstable_sx({ display: "flex", flexDirection: "column", my: 2 })
-        }
-      >
+      <div sx={{ display: "flex", flexDirection: "column", my: 2 }}>
         <div>
           <Typography variant="subtitle2" gutterBottom>
             Shipment details
@@ -70,14 +64,12 @@ export default function Review() {
             {payments.map((payment) => (
               <React.Fragment key={payment.name}>
                 <div
-                  sx={(theme) =>
-                    theme.unstable_sx({
-                      display: "flex",
-                      gap: 1,
-                      width: "100%",
-                      mb: 1,
-                    })
-                  }
+                  sx={{
+                    display: "flex",
+                    gap: 1,
+                    width: "100%",
+                    mb: 1,
+                  }}
                 >
                   <Typography
                     variant="body1"

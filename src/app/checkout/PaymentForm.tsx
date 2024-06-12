@@ -121,13 +121,11 @@ export default function PaymentForm() {
 
   return (
     <div
-      sx={(theme) =>
-        theme.unstable_sx({
-          display: "flex",
-          flexDirection: "column",
-          gap: { xs: 3, sm: 6 },
-        })
-      }
+      sx={{
+        display: "flex",
+        flexDirection: "column",
+        gap: { xs: 3, sm: 6 },
+      }}
     >
       <FormControl component="fieldset" fullWidth>
         <RadioGroup

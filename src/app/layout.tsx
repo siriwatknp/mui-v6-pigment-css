@@ -1,10 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { globalCss } from "@pigment-css/react";
-// import { AppRouterCacheProvider } from "@mui/material-nextjs/v14-appRouter";
-// import { Experimental_CssVarsProvider as CssVarsProvider } from "@mui/material/styles";
-// import colorSchemeScript from "./getInitColorSchemeScript";
-// import theme from "./theme";
 import "@pigment-css/react/styles.css";
 
 const inter = Inter({

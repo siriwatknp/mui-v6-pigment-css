@@ -1,10 +1,6 @@
 "use client";
 import type {} from "@mui/material/themeCssVarsAugmentation";
-import {
-  alpha,
-  createTheme,
-  experimental_extendTheme as extendTheme,
-} from "@mui/material/styles";
+import { alpha, createTheme, extendTheme } from "@mui/material/styles";
 import CheckBoxOutlineBlankRoundedIcon from "@mui/icons-material/CheckBoxOutlineBlankRounded";
 import CheckRoundedIcon from "@mui/icons-material/CheckRounded";
 
