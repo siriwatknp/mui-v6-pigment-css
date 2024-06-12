@@ -4,7 +4,6 @@ import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Card from "@mui/material/Card";
 import { Chip as MuiChip } from "@mui/material";
-import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
 import Link from "@mui/material/Link";
 import Typography from "@mui/material/Typography";
@@ -82,7 +81,25 @@ export default function Features() {
   const selectedFeature = items[selectedItemIndex];
 
   return (
-    <Container id="features" sx={{ py: { xs: 8, sm: 16 } }}>
+    <div
+      id="features"
+      sx={(theme) => ({
+        ...theme.unstable_sx({
+          maxWidth: "lg",
+          width: "100%",
+          marginLeft: "auto",
+          boxSizing: "border-box",
+          marginRight: "auto",
+          paddingLeft: theme.spacing(2),
+          paddingRight: theme.spacing(2),
+          [theme.breakpoints.up("sm")]: {
+            paddingLeft: theme.spacing(3),
+            paddingRight: theme.spacing(3),
+          },
+          py: { xs: 8, sm: 16 },
+        }),
+      })}
+    >
       <Grid container spacing={6}>
         <Grid item xs={12} md={6}>
           <div>
@@ -334,6 +351,6 @@ export default function Features() {
           </Card>
         </Grid>
       </Grid>
-    </Container>
+    </div>
   );
 }

@@ -5,7 +5,6 @@ import Card from "@mui/material/Card";
 import Chip from "@mui/material/Chip";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
-import Container from "@mui/material/Container";
 import Divider from "@mui/material/Divider";
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
@@ -57,17 +56,30 @@ const tiers = [
 
 export default function Pricing() {
   return (
-    (<Container
+    <div
       id="pricing"
-      sx={{
-        pt: { xs: 4, sm: 12 },
-        pb: { xs: 8, sm: 16 },
-        position: "relative",
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        gap: { xs: 3, sm: 6 },
-      }}
+      sx={(theme) => ({
+        ...theme.unstable_sx({
+          maxWidth: "lg",
+          width: "100%",
+          marginLeft: "auto",
+          boxSizing: "border-box",
+          marginRight: "auto",
+          paddingLeft: theme.spacing(2),
+          paddingRight: theme.spacing(2),
+          [theme.breakpoints.up("sm")]: {
+            paddingLeft: theme.spacing(3),
+            paddingRight: theme.spacing(3),
+          },
+          pt: { xs: 4, sm: 12 },
+          pb: { xs: 8, sm: 16 },
+          position: "relative",
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          gap: { xs: 3, sm: 6 },
+        }),
+      })}
     >
       <Box
         sx={{
@@ -75,14 +87,21 @@ export default function Pricing() {
           textAlign: { sm: "left", md: "center" },
         }}
       >
-        <Typography component="h2" variant="h4" sx={{
-          color: "text.primary"
-        }}>
+        <Typography
+          component="h2"
+          variant="h4"
+          sx={{
+            color: "text.primary",
+          }}
+        >
           Pricing
         </Typography>
-        <Typography variant="body1" sx={{
-          color: "text.secondary"
-        }}>
+        <Typography
+          variant="body1"
+          sx={{
+            color: "text.secondary",
+          }}
+        >
           Quickly build an effective pricing table for your potential customers
           with this layout. <br />
           It&apos;s built with default Material UI components with little
@@ -94,8 +113,9 @@ export default function Pricing() {
         spacing={3}
         sx={{
           alignItems: "center",
-          justifyContent: "center"
-        }}>
+          justifyContent: "center",
+        }}
+      >
         {tiers.map((tier) => (
           <Grid
             item
@@ -248,6 +268,6 @@ export default function Pricing() {
           </Grid>
         ))}
       </Grid>
-    </Container>)
+    </div>
   );
 }

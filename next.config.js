@@ -980,7 +980,20 @@ const theme = extendTheme({
       },
     },
   },
+  getSelector: function getSelector(colorScheme, css) {
+    if (colorScheme) {
+      return {
+        [`@media (prefers-color-scheme: ${colorScheme})`]: {
+          ":root": css,
+        },
+      };
+    }
+    return ":root";
+  },
 });
+theme.getColorSchemeSelector = (colorScheme) => {
+  return `@media (prefers-color-scheme: ${colorScheme})`;
+};
 theme.toRuntimeSource = stringifyTheme;
 
 /** @type {import('next').NextConfig} */

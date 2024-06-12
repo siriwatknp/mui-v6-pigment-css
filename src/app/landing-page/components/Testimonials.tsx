@@ -6,7 +6,6 @@ import CardContent from "@mui/material/CardContent";
 import Avatar from "@mui/material/Avatar";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
-import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
 import { useTheme } from "@mui/system";
 
@@ -83,17 +82,30 @@ export default function Testimonials() {
   const logos = theme.palette.mode === "light" ? darkLogos : whiteLogos;
 
   return (
-    (<Container
+    <div
       id="testimonials"
-      sx={{
-        pt: { xs: 4, sm: 12 },
-        pb: { xs: 8, sm: 16 },
-        position: "relative",
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        gap: { xs: 3, sm: 6 },
-      }}
+      sx={(theme) => ({
+        ...theme.unstable_sx({
+          maxWidth: "lg",
+          width: "100%",
+          marginLeft: "auto",
+          boxSizing: "border-box",
+          marginRight: "auto",
+          paddingLeft: theme.spacing(2),
+          paddingRight: theme.spacing(2),
+          [theme.breakpoints.up("sm")]: {
+            paddingLeft: theme.spacing(3),
+            paddingRight: theme.spacing(3),
+          },
+          pt: { xs: 4, sm: 12 },
+          pb: { xs: 8, sm: 16 },
+          position: "relative",
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          gap: { xs: 3, sm: 6 },
+        }),
+      })}
     >
       <Box
         sx={{
@@ -101,14 +113,21 @@ export default function Testimonials() {
           textAlign: { sm: "left", md: "center" },
         }}
       >
-        <Typography component="h2" variant="h4" sx={{
-          color: "text.primary"
-        }}>
+        <Typography
+          component="h2"
+          variant="h4"
+          sx={{
+            color: "text.primary",
+          }}
+        >
           Testimonials
         </Typography>
-        <Typography variant="body1" sx={{
-          color: "text.secondary"
-        }}>
+        <Typography
+          variant="body1"
+          sx={{
+            color: "text.secondary",
+          }}
+        >
           See what our customers love about our products. Discover how we excel
           in efficiency, durability, and satisfaction. Join us for quality,
           innovation, and reliable support.
@@ -127,9 +146,12 @@ export default function Testimonials() {
               }}
             >
               <CardContent>
-                <Typography variant="body2" sx={{
-                  color: "text.secondary"
-                }}>
+                <Typography
+                  variant="body2"
+                  sx={{
+                    color: "text.secondary",
+                  }}
+                >
                   {testimonial.testimonial}
                 </Typography>
               </CardContent>
@@ -156,6 +178,6 @@ export default function Testimonials() {
           </Grid>
         ))}
       </Grid>
-    </Container>)
+    </div>
   );
 }

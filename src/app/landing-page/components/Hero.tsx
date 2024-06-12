@@ -1,7 +1,6 @@
 import * as React from "react";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
-import Container from "@mui/material/Container";
 import InputLabel from "@mui/material/InputLabel";
 import Link from "@mui/material/Link";
 import TextField from "@mui/material/TextField";
@@ -47,14 +46,27 @@ export default function Hero() {
         }),
       })}
     >
-      <Container
-        sx={{
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          pt: { xs: 14, sm: 20 },
-          pb: { xs: 8, sm: 12 },
-        }}
+      <div
+        sx={(theme) => ({
+          ...theme.unstable_sx({
+            maxWidth: "lg",
+            width: "100%",
+            marginLeft: "auto",
+            boxSizing: "border-box",
+            marginRight: "auto",
+            paddingLeft: theme.spacing(2),
+            paddingRight: theme.spacing(2),
+            [theme.breakpoints.up("sm")]: {
+              paddingLeft: theme.spacing(3),
+              paddingRight: theme.spacing(3),
+            },
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            pt: { xs: 14, sm: 20 },
+            pb: { xs: 8, sm: 12 },
+          }),
+        })}
       >
         <div
           sx={(theme) => ({
@@ -146,7 +158,7 @@ export default function Hero() {
           </Typography>
         </div>
         <StyledBox id="image" />
-      </Container>
+      </div>
     </Box>
   );
 }

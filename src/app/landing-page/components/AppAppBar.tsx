@@ -5,7 +5,6 @@ import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import Button from "@mui/material/Button";
 import IconButton from "@mui/material/IconButton";
-import Container from "@mui/material/Container";
 import Divider from "@mui/material/Divider";
 import MenuItem from "@mui/material/MenuItem";
 import Drawer from "@mui/material/Drawer";
@@ -45,7 +44,23 @@ export default function AppAppBar() {
         mt: 2,
       }}
     >
-      <Container maxWidth="lg">
+      <div
+        sx={(theme) => ({
+          ...theme.unstable_sx({
+            maxWidth: "lg",
+            width: "100%",
+            marginLeft: "auto",
+            boxSizing: "border-box",
+            marginRight: "auto",
+            paddingLeft: theme.spacing(2),
+            paddingRight: theme.spacing(2),
+            [theme.breakpoints.up("sm")]: {
+              paddingLeft: theme.spacing(3),
+              paddingRight: theme.spacing(3),
+            },
+          }),
+        })}
+      >
         <Toolbar
           variant="regular"
           sx={(theme) => ({
@@ -197,7 +212,7 @@ export default function AppAppBar() {
             </Drawer>
           </Box>
         </Toolbar>
-      </Container>
+      </div>
     </AppBar>
   );
 }

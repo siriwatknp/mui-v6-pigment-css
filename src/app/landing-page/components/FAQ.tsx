@@ -4,7 +4,6 @@ import Accordion from "@mui/material/Accordion";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import AccordionSummary from "@mui/material/AccordionSummary";
 import Box from "@mui/material/Box";
-import Container from "@mui/material/Container";
 import Link from "@mui/material/Link";
 import Typography from "@mui/material/Typography";
 
@@ -19,17 +18,30 @@ export default function FAQ() {
     };
 
   return (
-    (<Container
+    <div
       id="faq"
-      sx={{
-        pt: { xs: 4, sm: 12 },
-        pb: { xs: 8, sm: 16 },
-        position: "relative",
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        gap: { xs: 3, sm: 6 },
-      }}
+      sx={(theme) => ({
+        ...theme.unstable_sx({
+          maxWidth: "lg",
+          width: "100%",
+          marginLeft: "auto",
+          boxSizing: "border-box",
+          marginRight: "auto",
+          paddingLeft: theme.spacing(2),
+          paddingRight: theme.spacing(2),
+          [theme.breakpoints.up("sm")]: {
+            paddingLeft: theme.spacing(3),
+            paddingRight: theme.spacing(3),
+          },
+          pt: { xs: 4, sm: 12 },
+          pb: { xs: 8, sm: 16 },
+          position: "relative",
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          gap: { xs: 3, sm: 6 },
+        }),
+      })}
     >
       <Typography
         component="h2"
@@ -37,8 +49,9 @@ export default function FAQ() {
         sx={{
           color: "text.primary",
           width: { sm: "100%", md: "60%" },
-          textAlign: { sm: "left", md: "center" }
-        }}>
+          textAlign: { sm: "left", md: "center" },
+        }}
+      >
         Frequently asked questions
       </Typography>
       <Box sx={{ width: "100%" }}>
@@ -146,6 +159,6 @@ export default function FAQ() {
           </AccordionDetails>
         </Accordion>
       </Box>
-    </Container>)
+    </div>
   );
 }

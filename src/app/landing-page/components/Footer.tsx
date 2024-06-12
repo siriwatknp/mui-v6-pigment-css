@@ -1,7 +1,6 @@
 import * as React from "react";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
-import Container from "@mui/material/Container";
 import IconButton from "@mui/material/IconButton";
 import InputLabel from "@mui/material/InputLabel";
 import Link from "@mui/material/Link";
@@ -34,15 +33,28 @@ function Copyright() {
 
 export default function Footer() {
   return (
-    <Container
-      sx={{
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        gap: { xs: 4, sm: 8 },
-        py: { xs: 8, sm: 10 },
-        textAlign: { sm: "center", md: "left" },
-      }}
+    <div
+      sx={(theme) => ({
+        ...theme.unstable_sx({
+          maxWidth: "lg",
+          width: "100%",
+          marginLeft: "auto",
+          boxSizing: "border-box",
+          marginRight: "auto",
+          paddingLeft: theme.spacing(2),
+          paddingRight: theme.spacing(2),
+          [theme.breakpoints.up("sm")]: {
+            paddingLeft: theme.spacing(3),
+            paddingRight: theme.spacing(3),
+          },
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          gap: { xs: 4, sm: 8 },
+          py: { xs: 8, sm: 10 },
+          textAlign: { sm: "center", md: "left" },
+        }),
+      })}
     >
       <Box
         sx={{
@@ -261,6 +273,6 @@ export default function Footer() {
           </IconButton>
         </div>
       </Box>
-    </Container>
+    </div>
   );
 }
