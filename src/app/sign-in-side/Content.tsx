@@ -1,6 +1,5 @@
 import * as React from "react";
 import Box from "@mui/material/Box";
-import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 
 import AutoFixHighRoundedIcon from "@mui/icons-material/AutoFixHighRounded";
@@ -38,35 +37,51 @@ const items = [
 ];
 export default function Content() {
   return (
-    (<Stack
-      sx={{
-        flexDirection: "column",
-        alignSelf: "center",
-        gap: 4,
-        maxWidth: 450
-      }}>
+    <div
+      sx={(theme) => ({
+        ...theme.unstable_sx({
+          display: "flex",
+          flexDirection: "column",
+          alignSelf: "center",
+          gap: 4,
+          maxWidth: 450,
+        }),
+      })}
+    >
       <Box sx={{ display: { xs: "none", md: "flex" } }}>
         <SitemarkIcon />
       </Box>
       {items.map((item) => (
-        <Stack key={item.title} direction="row" sx={{
-          gap: 2
-        }}>
+        <div
+          key={item.title}
+          sx={(theme) => ({
+            ...theme.unstable_sx({
+              display: "flex",
+              gap: 2,
+            }),
+          })}
+        >
           {item.icon}
           <div>
-            <Typography gutterBottom sx={{
-              fontWeight: "medium"
-            }}>
+            <Typography
+              gutterBottom
+              sx={{
+                fontWeight: "medium",
+              }}
+            >
               {item.title}
             </Typography>
-            <Typography variant="body2" sx={{
-              color: "text.secondary"
-            }}>
+            <Typography
+              variant="body2"
+              sx={{
+                color: "text.secondary",
+              }}
+            >
               {item.description}
             </Typography>
           </div>
-        </Stack>
+        </div>
       ))}
-    </Stack>)
+    </div>
   );
 }

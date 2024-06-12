@@ -1,8 +1,9 @@
 const { withPigment } = require("@pigment-css/nextjs-plugin");
 const {
-  experimental_extendTheme,
+  extendTheme,
   createTheme,
   alpha,
+  stringifyTheme,
 } = require("@mui/material/styles");
 
 const brand = {
@@ -220,7 +221,7 @@ const colorSchemes = {
   },
 };
 
-const theme = experimental_extendTheme({
+const theme = extendTheme({
   colorSchemes,
   ...rest,
   components: {
@@ -980,6 +981,7 @@ const theme = experimental_extendTheme({
     },
   },
 });
+theme.toRuntimeSource = stringifyTheme;
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {

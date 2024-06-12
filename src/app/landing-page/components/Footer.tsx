@@ -5,7 +5,6 @@ import Container from "@mui/material/Container";
 import IconButton from "@mui/material/IconButton";
 import InputLabel from "@mui/material/InputLabel";
 import Link from "@mui/material/Link";
-import Stack from "@mui/material/Stack";
 import TextField from "@mui/material/TextField";
 import Typography from "@mui/material/Typography";
 
@@ -19,22 +18,23 @@ import SitemarkIcon from "./SitemarkIcon";
 
 function Copyright() {
   return (
-    (<Typography
+    <Typography
       variant="body2"
       sx={{
         color: "text.secondary",
-        mt: 1
-      }}>
+        mt: 1,
+      }}
+    >
       {"Copyright © "}
       <Link href="https://mui.com/">Sitemark&nbsp;</Link>
       {new Date().getFullYear()}
-    </Typography>)
+    </Typography>
   );
 }
 
 export default function Footer() {
   return (
-    (<Container
+    <Container
       sx={{
         display: "flex",
         flexDirection: "column",
@@ -67,19 +67,28 @@ export default function Footer() {
               gutterBottom
               sx={{
                 fontWeight: 600,
-                mt: 2
-              }}>
+                mt: 2,
+              }}
+            >
               Join the newsletter
             </Typography>
             <Typography
               variant="body2"
               sx={{
                 color: "text.secondary",
-                mb: 2
-              }}>
+                mb: 2,
+              }}
+            >
               Subscribe for weekly updates. No spams ever!
             </Typography>
-            <Stack direction="row" spacing={1} useFlexGap>
+            <div
+              sx={(theme) => ({
+                ...theme.unstable_sx({
+                  display: "flex",
+                  gap: 1,
+                }),
+              })}
+            >
               <InputLabel htmlFor="email-newsletter" sx={visuallyHidden}>
                 Email
               </InputLabel>
@@ -103,7 +112,7 @@ export default function Footer() {
               >
                 Subscribe
               </Button>
-            </Stack>
+            </div>
           </Box>
         </Box>
         <Box
@@ -113,9 +122,12 @@ export default function Footer() {
             gap: 1,
           }}
         >
-          <Typography variant="body2" sx={{
-            fontWeight: "medium"
-          }}>
+          <Typography
+            variant="body2"
+            sx={{
+              fontWeight: "medium",
+            }}
+          >
             Product
           </Typography>
           <Link color="text.secondary" variant="body2" href="#">
@@ -141,9 +153,12 @@ export default function Footer() {
             gap: 1,
           }}
         >
-          <Typography variant="body2" sx={{
-            fontWeight: "medium"
-          }}>
+          <Typography
+            variant="body2"
+            sx={{
+              fontWeight: "medium",
+            }}
+          >
             Company
           </Typography>
           <Link color="text.secondary" variant="body2" href="#">
@@ -163,9 +178,12 @@ export default function Footer() {
             gap: 1,
           }}
         >
-          <Typography variant="body2" sx={{
-            fontWeight: "medium"
-          }}>
+          <Typography
+            variant="body2"
+            sx={{
+              fontWeight: "medium",
+            }}
+          >
             Legal
           </Typography>
           <Link color="text.secondary" variant="body2" href="#">
@@ -197,8 +215,9 @@ export default function Footer() {
             sx={{
               display: "inline",
               mx: 0.5,
-              opacity: 0.5
-            }}>
+              opacity: 0.5,
+            }}
+          >
             &nbsp;•&nbsp;
           </Typography>
           <Link color="text.secondary" variant="body2" href="#">
@@ -206,14 +225,16 @@ export default function Footer() {
           </Link>
           <Copyright />
         </div>
-        <Stack
-          direction="row"
-          spacing={1}
-          useFlexGap
-          sx={{
-            justifyContent: "left",
-            color: "text.secondary"
-          }}>
+        <div
+          sx={(theme) => ({
+            ...theme.unstable_sx({
+              display: "flex",
+              gap: 1,
+              justifyContent: "left",
+              color: "text.secondary",
+            }),
+          })}
+        >
           <IconButton
             color="inherit"
             href="https://github.com/mui"
@@ -238,8 +259,8 @@ export default function Footer() {
           >
             <LinkedInIcon />
           </IconButton>
-        </Stack>
+        </div>
       </Box>
-    </Container>)
+    </Container>
   );
 }

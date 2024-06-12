@@ -3,7 +3,6 @@ import * as React from "react";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Checkbox from "@mui/material/Checkbox";
-import CssBaseline from "@mui/material/CssBaseline";
 import Divider from "@mui/material/Divider";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import FormLabel from "@mui/material/FormLabel";
@@ -11,7 +10,6 @@ import FormControl from "@mui/material/FormControl";
 import Link from "@mui/material/Link";
 import TextField from "@mui/material/TextField";
 import Typography from "@mui/material/Typography";
-import Stack from "@mui/material/Stack";
 import { Card as MuiCard } from "@mui/material";
 import { styled } from "@mui/material/styles";
 
@@ -38,7 +36,10 @@ const Card = styled(MuiCard)(({ theme }) => ({
   }),
 }));
 
-const SignUpContainer = styled(Stack)(({ theme }) => ({
+const SignUpContainer = styled("div")(({ theme }) => ({
+  display: "flex",
+  flexDirection: "column",
+  justifyContent: "space-between",
   height: "auto",
   padingBottom: theme.spacing(12),
   backgroundImage:
@@ -111,27 +112,33 @@ export default function SignUp() {
   };
 
   return (
-    (<React.Fragment>
-      <CssBaseline />
-      <SignUpContainer direction="column" justifyContent="space-between">
-        <Stack
-          direction="row"
-          sx={{
-            justifyContent: "space-between",
-            position: { xs: "static", sm: "fixed" },
-            width: "100%",
-            p: { xs: 2, sm: 4 }
-          }}>
+    <React.Fragment>
+      <SignUpContainer>
+        <div
+          sx={(theme) => ({
+            ...theme.unstable_sx({
+              display: "flex",
+              justifyContent: "space-between",
+              position: { xs: "static", sm: "fixed" },
+              width: "100%",
+              p: { xs: 2, sm: 4 },
+            }),
+          })}
+        >
           <Button startIcon={<ArrowBackRoundedIcon />} component="a" href="/">
             Back
           </Button>
-        </Stack>
-        <Stack
-          sx={{
-            justifyContent: "center",
-            height: { xs: "100%", sm: "100dvh" },
-            p: 2
-          }}>
+        </div>
+        <div
+          sx={(theme) => ({
+            ...theme.unstable_sx({
+              display: "flex",
+              justifyContent: "center",
+              height: { xs: "100%", sm: "100dvh" },
+              p: 2,
+            }),
+          })}
+        >
           <Card>
             <SitemarkIcon />
             <Typography
@@ -212,9 +219,13 @@ export default function SignUp() {
               </Link>
             </Box>
             <Divider>
-              <Typography sx={{
-                color: "text.secondary"
-              }}>or</Typography>
+              <Typography
+                sx={{
+                  color: "text.secondary",
+                }}
+              >
+                or
+              </Typography>
             </Divider>
             <Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
               <Button
@@ -239,8 +250,8 @@ export default function SignUp() {
               </Button>
             </Box>
           </Card>
-        </Stack>
+        </div>
       </SignUpContainer>
-    </React.Fragment>)
+    </React.Fragment>
   );
 }

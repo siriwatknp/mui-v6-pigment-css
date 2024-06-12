@@ -4,7 +4,6 @@ import Button from "@mui/material/Button";
 import Container from "@mui/material/Container";
 import InputLabel from "@mui/material/InputLabel";
 import Link from "@mui/material/Link";
-import Stack from "@mui/material/Stack";
 import TextField from "@mui/material/TextField";
 import Typography from "@mui/material/Typography";
 
@@ -35,7 +34,7 @@ const StyledBox = styled("div")(({ theme }) => ({
 
 export default function Hero() {
   return (
-    (<Box
+    <Box
       id="hero"
       sx={(theme) => ({
         width: "100%",
@@ -57,13 +56,17 @@ export default function Hero() {
           pb: { xs: 8, sm: 12 },
         }}
       >
-        <Stack
-          spacing={2}
-          useFlexGap
-          sx={{
-            alignItems: "center",
-            width: { xs: "100%", sm: "70%" }
-          }}>
+        <div
+          sx={(theme) => ({
+            ...theme.unstable_sx({
+              display: "flex",
+              flexDirection: "column",
+              gap: 2,
+              alignItems: "center",
+              width: { xs: "100%", sm: "70%" },
+            }),
+          })}
+        >
           <Typography
             variant="h1"
             sx={{
@@ -92,17 +95,23 @@ export default function Hero() {
             sx={{
               textAlign: "center",
               color: "text.secondary",
-              width: { sm: "100%", md: "80%" }
-            }}>
+              width: { sm: "100%", md: "80%" },
+            }}
+          >
             Explore our cutting-edge dashboard, delivering high-quality
             solutions tailored to your needs. Elevate your experience with
             top-tier features and services.
           </Typography>
-          <Stack
-            direction={{ xs: "column", sm: "row" }}
-            spacing={1}
-            useFlexGap
-            sx={{ pt: 2, width: { xs: "100%", sm: "auto" } }}
+          <div
+            sx={(theme) => ({
+              ...theme.unstable_sx({
+                display: "flex",
+                flexDirection: { xs: "column", sm: "row" },
+                gap: 1,
+                pt: 2,
+                width: { xs: "100%", sm: "auto" },
+              }),
+            })}
           >
             <InputLabel htmlFor="email-hero" sx={visuallyHidden}>
               Email
@@ -122,19 +131,22 @@ export default function Hero() {
             <Button variant="contained" color="primary">
               Start now
             </Button>
-          </Stack>
-          <Typography variant="caption" sx={{
-            textAlign: "center"
-          }}>
+          </div>
+          <Typography
+            variant="caption"
+            sx={{
+              textAlign: "center",
+            }}
+          >
             By clicking &quot;Start now&quot; you agree to our&nbsp;
             <Link href="#" color="primary">
               Terms & Conditions
             </Link>
             .
           </Typography>
-        </Stack>
+        </div>
         <StyledBox id="image" />
       </Container>
-    </Box>)
+    </Box>
   );
 }

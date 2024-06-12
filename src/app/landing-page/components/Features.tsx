@@ -7,7 +7,6 @@ import { Chip as MuiChip } from "@mui/material";
 import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
 import Link from "@mui/material/Link";
-import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 
 import { styled } from "@pigment-css/react";
@@ -83,21 +82,26 @@ export default function Features() {
   const selectedFeature = items[selectedItemIndex];
 
   return (
-    (<Container id="features" sx={{ py: { xs: 8, sm: 16 } }}>
+    <Container id="features" sx={{ py: { xs: 8, sm: 16 } }}>
       <Grid container spacing={6}>
         <Grid item xs={12} md={6}>
           <div>
-            <Typography component="h2" variant="h4" sx={{
-              color: "text.primary"
-            }}>
+            <Typography
+              component="h2"
+              variant="h4"
+              sx={{
+                color: "text.primary",
+              }}
+            >
               Product features
             </Typography>
             <Typography
               variant="body1"
               sx={{
                 color: "text.secondary",
-                mb: { xs: 2, sm: 4 }
-              }}>
+                mb: { xs: 2, sm: 4 },
+              }}
+            >
               Provide a brief overview of the key features of the product. For
               example, you could list the number of features, their types or
               benefits, and add-ons.
@@ -108,8 +112,9 @@ export default function Features() {
             item
             sx={{
               gap: 1,
-              display: { xs: "auto", sm: "none" }
-            }}>
+              display: { xs: "auto", sm: "none" },
+            }}
+          >
             {items.map(({ title }, index) => (
               <Chip
                 key={index}
@@ -146,16 +151,18 @@ export default function Features() {
                 gutterBottom
                 sx={{
                   color: "text.primary",
-                  fontWeight: "medium"
-                }}>
+                  fontWeight: "medium",
+                }}
+              >
                 {selectedFeature.title}
               </Typography>
               <Typography
                 variant="body2"
                 sx={{
                   color: "text.secondary",
-                  mb: 1.5
-                }}>
+                  mb: 1.5,
+                }}
+              >
                 {selectedFeature.description}
               </Typography>
               <Link
@@ -166,8 +173,9 @@ export default function Features() {
                   display: "inline-flex",
                   alignItems: "center",
                   "& > svg": { transition: "0.2s" },
-                  "&:hover > svg": { transform: "translateX(2px)" }
-                }}>
+                  "&:hover > svg": { transform: "translateX(2px)" },
+                }}
+              >
                 <span>Learn more</span>
                 <ChevronRightRoundedIcon
                   fontSize="small"
@@ -176,16 +184,18 @@ export default function Features() {
               </Link>
             </Box>
           </Card>
-          <Stack
-            direction="column"
-            spacing={2}
-            useFlexGap
-            sx={{
-              justifyContent: "center",
-              alignItems: "flex-start",
-              width: "100%",
-              display: { xs: "none", sm: "flex" }
-            }}>
+          <div
+            sx={(theme) => ({
+              ...theme.unstable_sx({
+                display: { xs: "none", sm: "flex" },
+                flexDirection: "column",
+                justifyContent: "center",
+                alignItems: "flex-start",
+                gap: 2,
+                width: "100%",
+              }),
+            })}
+          >
             {items.map(({ icon, title, description }, index) => (
               <Card
                 key={index}
@@ -250,16 +260,18 @@ export default function Features() {
                       gutterBottom
                       sx={{
                         color: "text.primary",
-                        fontWeight: "medium"
-                      }}>
+                        fontWeight: "medium",
+                      }}
+                    >
                       {title}
                     </Typography>
                     <Typography
                       variant="body2"
                       sx={{
                         color: "text.secondary",
-                        mb: 1.5
-                      }}>
+                        mb: 1.5,
+                      }}
+                    >
                       {description}
                     </Typography>
                     <Link
@@ -273,8 +285,9 @@ export default function Features() {
                         display: "inline-flex",
                         alignItems: "center",
                         "& > svg": { transition: "0.2s" },
-                        "&:hover > svg": { transform: "translateX(2px)" }
-                      }}>
+                        "&:hover > svg": { transform: "translateX(2px)" },
+                      }}
+                    >
                       <span>Learn more</span>
                       <ChevronRightRoundedIcon
                         fontSize="small"
@@ -285,7 +298,7 @@ export default function Features() {
                 </Box>
               </Card>
             ))}
-          </Stack>
+          </div>
         </Grid>
         <Grid
           item
@@ -321,6 +334,6 @@ export default function Features() {
           </Card>
         </Grid>
       </Grid>
-    </Container>)
+    </Container>
   );
 }

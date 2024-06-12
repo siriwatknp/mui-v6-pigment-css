@@ -5,9 +5,7 @@ import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
-import CssBaseline from "@mui/material/CssBaseline";
 import Grid from "@mui/material/Grid";
-import Stack from "@mui/material/Stack";
 import Step from "@mui/material/Step";
 import StepLabel from "@mui/material/StepLabel";
 import Stepper from "@mui/material/Stepper";
@@ -51,8 +49,7 @@ export default function Checkout() {
   };
 
   return (
-    (<React.Fragment>
-      <CssBaseline />
+    <React.Fragment>
       <Grid container sx={{ height: { xs: "100%", sm: "100dvh" } }}>
         <Grid
           item
@@ -241,12 +238,21 @@ export default function Checkout() {
               ))}
             </Stepper>
             {activeStep === steps.length ? (
-              <Stack spacing={2} useFlexGap>
+              <div
+                sx={(theme) => ({
+                  display: "flex",
+                  flexDirection: "column",
+                  gap: theme.spacing(2),
+                })}
+              >
                 <Typography variant="h1">📦</Typography>
                 <Typography variant="h5">Thank you for your order!</Typography>
-                <Typography variant="body1" sx={{
-                  color: "text.secondary"
-                }}>
+                <Typography
+                  variant="body1"
+                  sx={{
+                    color: "text.secondary",
+                  }}
+                >
                   Your order number is
                   <strong>&nbsp;#140396</strong>. We have emailed your order
                   confirmation and will update you once its shipped.
@@ -260,7 +266,7 @@ export default function Checkout() {
                 >
                   Go to my orders
                 </Button>
-              </Stack>
+              </div>
             ) : (
               <React.Fragment>
                 {getStepContent(activeStep)}
@@ -326,6 +332,6 @@ export default function Checkout() {
           </Box>
         </Grid>
       </Grid>
-    </React.Fragment>)
+    </React.Fragment>
   );
 }
