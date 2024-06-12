@@ -11,7 +11,7 @@ import Link from "@mui/material/Link";
 import TextField from "@mui/material/TextField";
 import Typography from "@mui/material/Typography";
 import { Card as MuiCard } from "@mui/material";
-import { styled } from "@mui/material/styles";
+import { styled } from "@pigment-css/react";
 
 import ArrowBackRoundedIcon from "@mui/icons-material/ArrowBackRounded";
 
@@ -37,7 +37,10 @@ const Card = styled(MuiCard)(({ theme }) => ({
   }),
 }));
 
-const SignInContainer = styled(Stack)(({ theme }) => ({
+const SignInContainer = styled("div")(({ theme }) => ({
+  display: "flex",
+  flexDirection: "column",
+  justifyContent: "space-between",
   height: "auto",
   padingBottom: theme.spacing(12),
   backgroundImage:
@@ -106,7 +109,7 @@ export default function SignIn() {
 
   return (
     <React.Fragment>
-      <SignInContainer direction="column" justifyContent="space-between">
+      <SignInContainer>
         <div
           sx={(theme) => ({
             ...theme.unstable_sx({

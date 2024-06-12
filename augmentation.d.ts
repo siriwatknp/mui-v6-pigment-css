@@ -10,12 +10,9 @@ declare global {
   namespace React {
     interface HTMLAttributes<T> {
       sx?:
-        | React.CSSProperties
-        | ((theme: Theme) => React.CSSProperties | CSSObject)
-        | ReadonlyArray<
-            | React.CSSProperties
-            | ((theme: Theme) => React.CSSProperties | CSSObject)
-          >;
+        | CSSObject
+        | ((theme: Theme) => CSSObject)
+        | ReadonlyArray<CSSObject | ((theme: Theme) => CSSObject)>;
     }
   }
 }

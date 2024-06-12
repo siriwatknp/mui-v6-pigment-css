@@ -1,7 +1,6 @@
 import * as React from "react";
 
 import Divider from "@mui/material/Divider";
-import Grid from "@mui/material/Grid";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemText from "@mui/material/ListItemText";
@@ -67,7 +66,7 @@ export default function Review() {
           <Typography variant="subtitle2" gutterBottom>
             Payment details
           </Typography>
-          <Grid container>
+          <div sx={{ display: "flex" }}>
             {payments.map((payment) => (
               <React.Fragment key={payment.name}>
                 <div
@@ -92,7 +91,7 @@ export default function Review() {
                 </div>
               </React.Fragment>
             ))}
-          </Grid>
+          </div>
         </div>
       </div>
     </div>

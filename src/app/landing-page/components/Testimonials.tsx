@@ -6,8 +6,7 @@ import CardContent from "@mui/material/CardContent";
 import Avatar from "@mui/material/Avatar";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
-import Grid from "@mui/material/Grid";
-import { useTheme } from "@mui/system";
+import { useTheme } from "@pigment-css/react";
 
 const userTestimonials = [
   {
@@ -133,51 +132,56 @@ export default function Testimonials() {
           innovation, and reliable support.
         </Typography>
       </Box>
-      <Grid container spacing={2}>
+      <div
+        sx={{
+          display: "grid",
+          gap: 2,
+          gridTemplateColumns: "repeat(auto-fill, minmax(300px, 1fr))",
+        }}
+      >
         {userTestimonials.map((testimonial, index) => (
-          <Grid item xs={12} sm={6} md={4} key={index} sx={{ display: "flex" }}>
-            <Card
-              sx={{
-                display: "flex",
-                flexDirection: "column",
-                justifyContent: "space-between",
-                flexGrow: 1,
-                p: 1,
-              }}
-            >
-              <CardContent>
-                <Typography
-                  variant="body2"
-                  sx={{
-                    color: "text.secondary",
-                  }}
-                >
-                  {testimonial.testimonial}
-                </Typography>
-              </CardContent>
-              <Box
+          <Card
+            key={index}
+            sx={{
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "space-between",
+              flexGrow: 1,
+              p: 1,
+            }}
+          >
+            <CardContent>
+              <Typography
+                variant="body2"
                 sx={{
-                  display: "flex",
-                  flexDirection: "row",
-                  justifyContent: "space-between",
-                  pr: 2,
+                  color: "text.secondary",
                 }}
               >
-                <CardHeader
-                  avatar={testimonial.avatar}
-                  title={testimonial.name}
-                  subheader={testimonial.occupation}
-                />
-                <img
-                  src={logos[index]}
-                  alt={`Logo ${index + 1}`}
-                  style={logoStyle}
-                />
-              </Box>
-            </Card>
-          </Grid>
+                {testimonial.testimonial}
+              </Typography>
+            </CardContent>
+            <Box
+              sx={{
+                display: "flex",
+                flexDirection: "row",
+                justifyContent: "space-between",
+                pr: 2,
+              }}
+            >
+              <CardHeader
+                avatar={testimonial.avatar}
+                title={testimonial.name}
+                subheader={testimonial.occupation}
+              />
+              <img
+                src={logos[index]}
+                alt={`Logo ${index + 1}`}
+                style={logoStyle}
+              />
+            </Box>
+          </Card>
         ))}
-      </Grid>
+      </div>
     </div>
   );
 }

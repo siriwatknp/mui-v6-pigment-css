@@ -1,7 +1,6 @@
 import * as React from "react";
 import Box from "@mui/material/Box";
 import Card from "@mui/material/Card";
-import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 import AutoFixHighRoundedIcon from "@mui/icons-material/AutoFixHighRounded";
 import ConstructionRoundedIcon from "@mui/icons-material/ConstructionRounded";
@@ -97,44 +96,51 @@ export default function Highlights() {
             support and precision in every detail.
           </Typography>
         </Box>
-        <Grid container spacing={2.5}>
+        <div
+          sx={(theme) => ({
+            ...theme.unstable_sx({
+              display: "grid",
+              gap: 2.5,
+              gridTemplateColumns: "repeat(auto-fill, minmax(300px, 1fr))",
+              width: "100%",
+            }),
+          })}
+        >
           {items.map((item, index) => (
-            <Grid item xs={12} sm={6} md={4} key={index}>
-              <Card
-                sx={(theme) => ({
-                  ...theme.unstable_sx({
-                    display: "flex",
-                    flexDirection: "column",
-                    gap: 1,
-                    color: "inherit",
-                    p: 3,
-                    height: "100%",
-                    border: "1px solid",
-                    borderColor: "hsla(220, 25%, 25%, .3)",
-                    background: "transparent",
-                    backgroundColor: "grey.900",
-                    boxShadow: "none",
-                  }),
-                })}
-              >
-                <Box sx={{ opacity: "50%" }}>{item.icon}</Box>
-                <div>
-                  <Typography
-                    gutterBottom
-                    sx={{
-                      fontWeight: "medium",
-                    }}
-                  >
-                    {item.title}
-                  </Typography>
-                  <Typography variant="body2" sx={{ color: "grey.400" }}>
-                    {item.description}
-                  </Typography>
-                </div>
-              </Card>
-            </Grid>
+            <Card
+              key={index}
+              sx={(theme) => ({
+                ...theme.unstable_sx({
+                  display: "flex",
+                  flexDirection: "column",
+                  gap: 1,
+                  color: "inherit",
+                  p: 3,
+                  border: "1px solid",
+                  borderColor: "hsla(220, 25%, 25%, .3)",
+                  background: "transparent",
+                  backgroundColor: "grey.900",
+                  boxShadow: "none",
+                }),
+              })}
+            >
+              <Box sx={{ opacity: "50%" }}>{item.icon}</Box>
+              <div>
+                <Typography
+                  gutterBottom
+                  sx={{
+                    fontWeight: "medium",
+                  }}
+                >
+                  {item.title}
+                </Typography>
+                <Typography variant="body2" sx={{ color: "grey.400" }}>
+                  {item.description}
+                </Typography>
+              </div>
+            </Card>
           ))}
-        </Grid>
+        </div>
       </div>
     </Box>
   );

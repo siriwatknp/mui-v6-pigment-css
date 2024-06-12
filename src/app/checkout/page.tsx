@@ -5,7 +5,6 @@ import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
-import Grid from "@mui/material/Grid";
 import Step from "@mui/material/Step";
 import StepLabel from "@mui/material/StepLabel";
 import Stepper from "@mui/material/Stepper";
@@ -50,12 +49,14 @@ export default function Checkout() {
 
   return (
     <React.Fragment>
-      <Grid container sx={{ height: { xs: "100%", sm: "100dvh" } }}>
-        <Grid
-          item
-          xs={12}
-          sm={5}
-          lg={4}
+      <div
+        sx={{
+          height: { xs: "100%", sm: "100dvh" },
+          display: "grid",
+          gridTemplateColumns: "repeat(auto-fill, minmax(400px 1fr))",
+        }}
+      >
+        <div
           sx={{
             display: { xs: "none", md: "flex" },
             flexDirection: "column",
@@ -96,12 +97,8 @@ export default function Checkout() {
           >
             <Info totalPrice={activeStep >= 2 ? "$144.97" : "$134.98"} />
           </Box>
-        </Grid>
-        <Grid
-          item
-          sm={12}
-          md={7}
-          lg={8}
+        </div>
+        <div
           sx={{
             display: "flex",
             flexDirection: "column",
@@ -330,8 +327,8 @@ export default function Checkout() {
               </React.Fragment>
             )}
           </Box>
-        </Grid>
-      </Grid>
+        </div>
+      </div>
     </React.Fragment>
   );
 }

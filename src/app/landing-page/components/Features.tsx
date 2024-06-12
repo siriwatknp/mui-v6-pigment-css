@@ -4,7 +4,6 @@ import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Card from "@mui/material/Card";
 import { Chip as MuiChip } from "@mui/material";
-import Grid from "@mui/material/Grid";
 import Link from "@mui/material/Link";
 import Typography from "@mui/material/Typography";
 
@@ -100,8 +99,16 @@ export default function Features() {
         }),
       })}
     >
-      <Grid container spacing={6}>
-        <Grid item xs={12} md={6}>
+      <div
+        sx={(theme) => ({
+          ...theme.unstable_sx({
+            display: "grid",
+            gap: 6,
+            gridTemplateColumns: "repeat(auto-fill, minmax(500px, 1fr))",
+          }),
+        })}
+      >
+        <div>
           <div>
             <Typography
               component="h2"
@@ -124,13 +131,13 @@ export default function Features() {
               benefits, and add-ons.
             </Typography>
           </div>
-          <Grid
-            container
-            item
-            sx={{
-              gap: 1,
-              display: { xs: "auto", sm: "none" },
-            }}
+          <div
+            sx={(theme) => ({
+              ...theme.unstable_sx({
+                gap: 1,
+                display: { xs: "flex", sm: "none" },
+              }),
+            })}
           >
             {items.map(({ title }, index) => (
               <Chip
@@ -140,7 +147,7 @@ export default function Features() {
                 selected={selectedItemIndex === index}
               />
             ))}
-          </Grid>
+          </div>
           <Card
             variant="outlined"
             sx={{
@@ -316,41 +323,35 @@ export default function Features() {
               </Card>
             ))}
           </div>
-        </Grid>
-        <Grid
-          item
-          xs={12}
-          md={6}
-          sx={{ display: { xs: "none", sm: "flex" }, width: "100%" }}
+        </div>
+
+        <Card
+          variant="outlined"
+          sx={{
+            height: "100%",
+            width: "100%",
+            display: { xs: "none", sm: "flex" },
+            pointerEvents: "none",
+          }}
         >
-          <Card
-            variant="outlined"
-            sx={{
-              height: "100%",
-              width: "100%",
-              display: { xs: "none", sm: "flex" },
-              pointerEvents: "none",
+          <Box
+            sx={(theme) => ({
+              m: "auto",
+              width: 420,
+              height: 500,
+              backgroundSize: "contain",
+              backgroundImage: "var(--items-imageDark)",
+              ...theme.applyStyles("light", {
+                backgroundImage: "var(--items-imageLight)",
+              }),
+            })}
+            style={{
+              "--items-imageLight": items[selectedItemIndex].imageLight,
+              "--items-imageDark": items[selectedItemIndex].imageDark,
             }}
-          >
-            <Box
-              sx={(theme) => ({
-                m: "auto",
-                width: 420,
-                height: 500,
-                backgroundSize: "contain",
-                backgroundImage: "var(--items-imageDark)",
-                ...theme.applyStyles("light", {
-                  backgroundImage: "var(--items-imageLight)",
-                }),
-              })}
-              style={{
-                "--items-imageLight": items[selectedItemIndex].imageLight,
-                "--items-imageDark": items[selectedItemIndex].imageDark,
-              }}
-            />
-          </Card>
-        </Grid>
-      </Grid>
+          />
+        </Card>
+      </div>
     </div>
   );
 }
